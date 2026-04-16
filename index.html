@@ -226,6 +226,51 @@ footer{background:var(--dark);padding:52px 32px 28px;color:#AAA;}
 .faq-answer-inner strong{color:var(--dark);}
 .faq-cta-inline{display:inline-block;margin-top:14px;background:var(--red);color:var(--white);font-weight:700;padding:10px 22px;border-radius:8px;text-decoration:none;font-size:0.9rem;transition:background 0.2s;}
 .faq-cta-inline:hover{background:var(--maroon);}
+
+/* SERVICE AREA */
+.area-bg{background:var(--dark);}
+.area-bg .section-title{color:var(--white);}
+.area-bg .section-label{color:#FF8080;}
+.area-bg .section-sub{color:#999;}
+.area-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:36px;}
+.area-card{background:#1A1A1A;border:1px solid #2A2A2A;border-radius:12px;padding:18px 16px;text-align:center;transition:border-color 0.2s,transform 0.2s;}
+.area-card:hover{border-color:var(--red);transform:translateY(-2px);}
+.area-card .area-icon{font-size:1.6rem;margin-bottom:8px;}
+.area-card .area-city{font-size:0.97rem;font-weight:700;color:var(--white);margin-bottom:4px;}
+.area-card .area-county{font-size:0.78rem;color:#666;letter-spacing:0.05em;}
+.area-note{text-align:center;color:#666;font-size:0.88rem;line-height:1.7;}
+.area-note strong{color:#999;}
+
+/* BLOG */
+.blog-bg{background:var(--offwhite);}
+.blog-slider-wrap{position:relative;overflow:hidden;border-radius:16px;}
+.blog-track{display:flex;transition:transform 0.5s cubic-bezier(0.4,0,0.2,1);}
+.blog-slide{min-width:100%;display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--white);border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.10);border:1px solid var(--border);}
+.blog-slide-img{background:linear-gradient(135deg,var(--maroon) 0%,var(--dark) 100%);padding:48px 40px;display:flex;flex-direction:column;justify-content:space-between;min-height:420px;position:relative;overflow:hidden;}
+.blog-slide-img::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 80% 20%,rgba(196,18,48,0.3) 0%,transparent 50%);}
+.blog-slide-img .blog-num{position:relative;font-family:'Cormorant Garamond',serif;font-size:6rem;font-weight:700;color:rgba(255,255,255,0.06);line-height:1;margin-bottom:auto;}
+.blog-slide-img .blog-cat{position:relative;display:inline-block;background:var(--red);color:var(--white);font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:6px 14px;border-radius:20px;align-self:flex-start;}
+.blog-slide-img .blog-read{position:relative;color:rgba(255,255,255,0.5);font-size:0.8rem;margin-top:auto;}
+.blog-slide-content{padding:44px 40px;display:flex;flex-direction:column;justify-content:center;}
+.blog-slide-content h3{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:700;color:var(--dark);line-height:1.25;margin-bottom:16px;}
+.blog-slide-content .blog-intro{font-size:0.95rem;color:var(--muted);line-height:1.8;margin-bottom:20px;}
+.blog-points{list-style:none;margin-bottom:24px;}
+.blog-points li{display:flex;align-items:flex-start;gap:10px;font-size:0.9rem;color:#444;margin-bottom:10px;line-height:1.6;}
+.blog-points li::before{content:'→';color:var(--red);font-weight:700;flex-shrink:0;margin-top:1px;}
+.blog-controls{display:flex;align-items:center;justify-content:space-between;margin-top:28px;}
+.blog-dots{display:flex;gap:8px;justify-content:center;flex:1;}
+.blog-dot{width:8px;height:8px;border-radius:50%;background:var(--border);border:none;cursor:pointer;transition:all 0.2s;padding:0;}
+.blog-dot.active{background:var(--red);width:24px;border-radius:4px;}
+.blog-nav{display:flex;gap:10px;}
+.blog-btn{width:40px;height:40px;border-radius:50%;border:2px solid var(--border);background:var(--white);cursor:pointer;font-size:1rem;color:var(--dark);transition:all 0.2s;display:flex;align-items:center;justify-content:center;}
+.blog-btn:hover{background:var(--red);border-color:var(--red);color:var(--white);}
+@media(max-width:768px){
+  .blog-slide{grid-template-columns:1fr;}
+  .blog-slide-img{min-height:160px;padding:28px;}
+  .blog-slide-content{padding:28px 24px;}
+  .area-grid{grid-template-columns:repeat(2,1fr);}
+}
+
 </style>
 </head>
 <body>
@@ -243,6 +288,7 @@ footer{background:var(--dark);padding:52px 32px 28px;color:#AAA;}
     <a href="#services">Services</a>
     <a href="#about">About Us</a>
     <a href="#testimonials">Testimonials</a>
+    <a href="#blog">Blog</a>
     <a href="#faq">FAQ</a>
     <a href="#quote" class="nav-cta">Get a Free Quote</a>
   </div>
@@ -254,6 +300,7 @@ footer{background:var(--dark);padding:52px 32px 28px;color:#AAA;}
   <a href="#services" onclick="toggleMenu()">Services</a>
   <a href="#about" onclick="toggleMenu()">About Us</a>
   <a href="#testimonials" onclick="toggleMenu()">Testimonials</a>
+  <a href="#blog" onclick="toggleMenu()">Blog</a>
   <a href="#faq" onclick="toggleMenu()">FAQ</a>
   <a href="#quote" onclick="toggleMenu()">Get a Free Quote</a>
   <a href="tel:6019812911">📞 (601) 981-2911</a>
@@ -392,6 +439,36 @@ function toggleFaq(btn){
   document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
   if(!wasOpen) item.classList.add('open');
 }
+
+// Blog slider
+let blogIdx = 0;
+const blogSlides = document.querySelectorAll('.blog-slide');
+const blogTrack = document.getElementById('blogTrack');
+const blogDotsWrap = document.getElementById('blogDots');
+let blogTimer;
+
+function initBlog(){
+  if(!blogSlides.length) return;
+  blogDotsWrap.innerHTML = '';
+  blogSlides.forEach((_,i)=>{
+    const d = document.createElement('button');
+    d.className = 'blog-dot' + (i===0?' active':'');
+    d.onclick = ()=>goBlog(i);
+    blogDotsWrap.appendChild(d);
+  });
+  startBlogTimer();
+}
+function goBlog(n){
+  blogIdx = (n + blogSlides.length) % blogSlides.length;
+  blogTrack.style.transform = `translateX(-${blogIdx * 100}%)`;
+  document.querySelectorAll('.blog-dot').forEach((d,i)=>d.classList.toggle('active',i===blogIdx));
+  resetBlogTimer();
+}
+function moveBlog(dir){ goBlog(blogIdx + dir); }
+function startBlogTimer(){ blogTimer = setInterval(()=>goBlog(blogIdx+1), 7000); }
+function resetBlogTimer(){ clearInterval(blogTimer); startBlogTimer(); }
+document.addEventListener('DOMContentLoaded', initBlog);
+
 </script>
     </div>
     <div style="text-align:center;margin-top:44px;padding:32px;background:#1A1A1A;border-radius:16px;border:1px solid #2A2A2A;">
@@ -517,6 +594,181 @@ function toggleFaq(btn){
   </div>
 </section>
 
+
+
+<!-- SERVICE AREA -->
+<section class="section area-bg" id="service-area">
+  <div class="section-inner">
+    <div class="section-header" style="text-align:center;">
+      <div class="section-label">Where We Serve</div>
+      <h2 class="section-title">Proudly Serving Central Mississippi</h2>
+      <p class="section-sub" style="margin:0 auto;">Based in Jackson for over 25 years, we serve families and businesses across the greater metro area and beyond.</p>
+    </div>
+    <div class="area-grid">
+      <div class="area-card"><div class="area-icon">🏙️</div><div class="area-city">Jackson</div><div class="area-county">Hinds County</div></div>
+      <div class="area-card"><div class="area-icon">🏘️</div><div class="area-city">Brandon</div><div class="area-county">Rankin County</div></div>
+      <div class="area-card"><div class="area-icon">🏘️</div><div class="area-city">Flowood</div><div class="area-county">Rankin County</div></div>
+      <div class="area-card"><div class="area-icon">🏘️</div><div class="area-city">Pearl</div><div class="area-county">Rankin County</div></div>
+      <div class="area-card"><div class="area-icon">🏘️</div><div class="area-city">Ridgeland</div><div class="area-county">Madison County</div></div>
+      <div class="area-card"><div class="area-icon">🏘️</div><div class="area-city">Madison</div><div class="area-county">Madison County</div></div>
+      <div class="area-card"><div class="area-icon">🏘️</div><div class="area-city">Clinton</div><div class="area-county">Hinds County</div></div>
+      <div class="area-card"><div class="area-icon">🏘️</div><div class="area-city">Byram</div><div class="area-county">Hinds County</div></div>
+      <div class="area-card"><div class="area-icon">🏘️</div><div class="area-city">Richland</div><div class="area-county">Rankin County</div></div>
+      <div class="area-card"><div class="area-icon">🏘️</div><div class="area-city">Florence</div><div class="area-county">Rankin County</div></div>
+      <div class="area-card"><div class="area-icon">🏘️</div><div class="area-city">Terry</div><div class="area-county">Hinds County</div></div>
+      <div class="area-card"><div class="area-icon">🏘️</div><div class="area-city">Raymond</div><div class="area-county">Hinds County</div></div>
+    </div>
+    <p class="area-note"><strong>Not seeing your city?</strong> We serve clients across all of Mississippi. Call us at <a href="tel:6019812911" style="color:var(--red);font-weight:700;">(601) 981-2911</a> — if you're in the state, we can help.</p>
+  </div>
+</section>
+
+
+<!-- BLOG -->
+<section class="section blog-bg" id="blog">
+  <div class="section-inner">
+    <div class="section-header" style="text-align:center;">
+      <div class="section-label">Insurance Tips</div>
+      <h2 class="section-title">Know More. Pay Less.</h2>
+      <p class="section-sub" style="margin:0 auto;">Straight talk from 30 years of helping Mississippi families get the right coverage at the right price.</p>
+    </div>
+
+    <div class="blog-slider-wrap">
+      <div class="blog-track" id="blogTrack">
+
+        <!-- POST 1 -->
+        <div class="blog-slide">
+          <div class="blog-slide-img">
+            <div class="blog-num">01</div>
+            <div class="blog-cat">Auto Insurance</div>
+            <div class="blog-read">5 min read</div>
+          </div>
+          <div class="blog-slide-content">
+            <h3>5 Ways to Lower Your Auto Insurance Rate in Mississippi</h3>
+            <p class="blog-intro">Most drivers overpay for auto insurance without realizing it. Here are five things you can do right now to bring your rate down — without sacrificing coverage.</p>
+            <ul class="blog-points">
+              <li>Shop multiple carriers every 6–12 months — rates change constantly and loyalty rarely pays</li>
+              <li>Ask about bundling your auto with home or renters — most carriers give significant discounts</li>
+              <li>Raise your deductible if you have savings — going from $500 to $1,000 can cut your premium noticeably</li>
+              <li>Keep your policy active — even a short lapse flags you as higher risk and raises your rate</li>
+              <li>Call an independent agent — we compare 8+ companies at once so you don't have to</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- POST 2 -->
+        <div class="blog-slide">
+          <div class="blog-slide-img">
+            <div class="blog-num">02</div>
+            <div class="blog-cat">Coverage Basics</div>
+            <div class="blog-read">4 min read</div>
+          </div>
+          <div class="blog-slide-content">
+            <h3>Liability vs. Full Coverage: Which One Do You Actually Need?</h3>
+            <p class="blog-intro">This is the question we get more than almost any other. The answer depends on your vehicle, your finances, and your situation — here's how to think about it.</p>
+            <ul class="blog-points">
+              <li>Liability only covers damage you cause to others — your own car gets nothing if you're at fault</li>
+              <li>Full coverage adds collision (accidents) and comprehensive (theft, weather, fire)</li>
+              <li>If your car is worth less than $4,000, full coverage may cost more than the car is worth</li>
+              <li>If you have a car loan or lease, your lender requires full coverage — no exceptions</li>
+              <li>When in doubt, ask us — we'll run the numbers for your specific vehicle and budget</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- POST 3 -->
+        <div class="blog-slide">
+          <div class="blog-slide-img">
+            <div class="blog-num">03</div>
+            <div class="blog-cat">After a Lapse</div>
+            <div class="blog-read">4 min read</div>
+          </div>
+          <div class="blog-slide-content">
+            <h3>What Happens When Your Insurance Lapses — And How to Recover</h3>
+            <p class="blog-intro">Life happens. Payments get missed, policies cancel, and suddenly you're driving uninsured in Mississippi. Here's what you need to know and how to get back covered fast.</p>
+            <ul class="blog-points">
+              <li>Mississippi requires minimum liability coverage — driving without it risks fines, license suspension, and worse</li>
+              <li>A lapse of even a few days can raise your next rate — the longer the lapse, the higher the risk flag</li>
+              <li>Not all carriers penalize lapses equally — independent agents can find the most lenient options</li>
+              <li>You can often get same-day coverage — call us and we'll get you back on the road today</li>
+              <li>Setting up autopay after reinstatement is the single best way to prevent it from happening again</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- POST 4 -->
+        <div class="blog-slide">
+          <div class="blog-slide-img">
+            <div class="blog-num">04</div>
+            <div class="blog-cat">Life & Burial</div>
+            <div class="blog-read">5 min read</div>
+          </div>
+          <div class="blog-slide-content">
+            <h3>Burial Insurance: What Mississippi Families Should Know</h3>
+            <p class="blog-intro">Final expense insurance is one of the most overlooked but most important policies for families in Mississippi. Here's a plain-English breakdown of what it is and who needs it.</p>
+            <ul class="blog-points">
+              <li>The average funeral in Mississippi costs $7,000–$12,000 — most families aren't prepared for that</li>
+              <li>Burial insurance is a small whole life policy — typically $5,000–$25,000 — that covers final expenses</li>
+              <li>Premiums are affordable and fixed — often $20–$60/month depending on age and coverage amount</li>
+              <li>Approval is simple — no medical exam required for most policies, just a few health questions</li>
+              <li>It's one of the greatest gifts you can give your family — peace of mind when they need it most</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- POST 5 -->
+        <div class="blog-slide">
+          <div class="blog-slide-img">
+            <div class="blog-num">05</div>
+            <div class="blog-cat">Business Owners</div>
+            <div class="blog-read">5 min read</div>
+          </div>
+          <div class="blog-slide-content">
+            <h3>What Every Mississippi Small Business Owner Needs to Know About Commercial Insurance</h3>
+            <p class="blog-intro">Running a business without the right insurance is one of the biggest financial risks you can take. Here's what coverage you actually need — and what you can skip.</p>
+            <ul class="blog-points">
+              <li>General liability is the foundation — it covers injuries, property damage, and lawsuits on your premises</li>
+              <li>Commercial auto is separate from personal auto — using your personal vehicle for business can void your coverage</li>
+              <li>A business owners policy (BOP) bundles liability and property — often the most cost-effective option for small businesses</li>
+              <li>If you have employees, workers' comp may be required in Mississippi depending on your industry</li>
+              <li>The best time to review your commercial coverage is before something happens — not after</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- POST 6 -->
+        <div class="blog-slide">
+          <div class="blog-slide-img">
+            <div class="blog-num">06</div>
+            <div class="blog-cat">Home Insurance</div>
+            <div class="blog-read">4 min read</div>
+          </div>
+          <div class="blog-slide-content">
+            <h3>Home Insurance in Mississippi: What's Covered and What's Not</h3>
+            <p class="blog-intro">Mississippi homeowners face unique risks — from severe weather to flooding. Here's what your standard home policy covers and where you may have dangerous gaps.</p>
+            <ul class="blog-points">
+              <li>Standard homeowners policies cover fire, wind, hail, theft, and liability — but NOT floods</li>
+              <li>Flood insurance is separate and must be purchased through the National Flood Insurance Program or private carriers</li>
+              <li>Mississippi's storm risk means your wind/hail deductible may be higher than you realize — read your policy</li>
+              <li>If you have a mobile or manufactured home, you need a specialty policy — standard homeowners won't cover it</li>
+              <li>Renters insurance is one of the most affordable policies available — often under $20/month for significant protection</li>
+            </ul>
+          </div>
+        </div>
+
+      </div><!-- end blog-track -->
+    </div><!-- end slider-wrap -->
+
+    <div class="blog-controls" style="margin-top:24px;">
+      <div class="blog-nav">
+        <button class="blog-btn" onclick="moveBlog(-1)">&#8592;</button>
+        <button class="blog-btn" onclick="moveBlog(1)">&#8594;</button>
+      </div>
+      <div class="blog-dots" id="blogDots"></div>
+      <div style="width:80px;"></div>
+    </div>
+
+  </div>
+</section>
 
 <!-- FAQ -->
 <section class="section faq-bg" id="faq">
@@ -710,6 +962,36 @@ function toggleFaq(btn){
   document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
   if(!wasOpen) item.classList.add('open');
 }
+
+// Blog slider
+let blogIdx = 0;
+const blogSlides = document.querySelectorAll('.blog-slide');
+const blogTrack = document.getElementById('blogTrack');
+const blogDotsWrap = document.getElementById('blogDots');
+let blogTimer;
+
+function initBlog(){
+  if(!blogSlides.length) return;
+  blogDotsWrap.innerHTML = '';
+  blogSlides.forEach((_,i)=>{
+    const d = document.createElement('button');
+    d.className = 'blog-dot' + (i===0?' active':'');
+    d.onclick = ()=>goBlog(i);
+    blogDotsWrap.appendChild(d);
+  });
+  startBlogTimer();
+}
+function goBlog(n){
+  blogIdx = (n + blogSlides.length) % blogSlides.length;
+  blogTrack.style.transform = `translateX(-${blogIdx * 100}%)`;
+  document.querySelectorAll('.blog-dot').forEach((d,i)=>d.classList.toggle('active',i===blogIdx));
+  resetBlogTimer();
+}
+function moveBlog(dir){ goBlog(blogIdx + dir); }
+function startBlogTimer(){ blogTimer = setInterval(()=>goBlog(blogIdx+1), 7000); }
+function resetBlogTimer(){ clearInterval(blogTimer); startBlogTimer(); }
+document.addEventListener('DOMContentLoaded', initBlog);
+
 </script>
 </body>
 </html>
