@@ -412,7 +412,7 @@ nav{transition:background 0.3s,box-shadow 0.3s;}
 .agents-bg .section-title{color:var(--white);}
 .agents-bg .section-label{color:#FF8080;}
 .agents-bg .section-sub{color:#999;}
-.agents-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:700px;margin:0 auto;}
+.agents-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1000px;margin:0 auto;}
 .agent-card{
   background:#1A1A1A;border-radius:16px;
   padding:32px 28px;text-align:center;
@@ -581,7 +581,7 @@ input[type="email"]:focus,select:focus,textarea:focus{
 <!-- TRUST BAR -->
 <div class="trust-bar">
   <div class="trust-item"><span class="icon">🏢</span><span>Same Jackson Location Since 1999</span></div>
-  <div class="trust-item"><span class="icon">🔄</span><span>8+ Carriers Compared</span></div>
+  <div class="trust-item"><span class="icon">🔄</span><span>20+ Carriers Compared</span></div>
   <div class="trust-item"><span class="icon">✅</span><span>All Drivers Welcome</span></div>
   <div class="trust-item"><span class="icon">⚡</span><span>Fast Same-Day Quotes</span></div>
   <div class="trust-item"><span class="icon">🤝</span><span>Family-Owned &amp; Operated</span></div>
@@ -603,7 +603,7 @@ input[type="email"]:focus,select:focus,textarea:focus{
     <span class="stat-bar-label">Families Served</span>
   </div>
   <div class="stat-bar-item">
-    <span class="stat-bar-num"><span class="counter" data-target="8">0</span><span style="color:#FF8080">+</span></span>
+    <span class="stat-bar-num"><span class="counter" data-target="20">0</span><span style="color:#FF8080">+</span></span>
     <span class="stat-bar-label">Carriers Compared</span>
   </div>
 </div>
@@ -718,6 +718,12 @@ input[type="email"]:focus,select:focus,textarea:focus{
         <div class="agent-name">Monica Ray</div>
         <div class="agent-role">Senior Agent</div>
         <div class="agent-bio">Monica brings years of experience across auto, home, and commercial lines. She knows every carrier we work with inside and out — and she'll find you the best rate available.</div>
+      </div>
+      <div class="agent-card">
+        <div class="agent-avatar">ML</div>
+        <div class="agent-name">Marlon Malbry</div>
+        <div class="agent-role">Office Manager</div>
+        <div class="agent-bio">Marlon manages day-to-day operations at Alpha Insurance, ensuring every client gets a fast response and a seamless experience from first quote to active policy.</div>
       </div>
     </div>
   </div>
@@ -889,15 +895,15 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 <section class="section carriers-bg">
   <div class="section-inner" style="text-align:center;">
     <div class="section-label">Our Carrier Network</div>
-    <h2 class="section-title">We Shop 8+ Carriers So You Don't Have To</h2>
-    <p class="section-sub" style="margin:0 auto 36px;">Being independent means we compare rates across multiple top-rated insurance companies to find your best option.</p>
+    <h2 class="section-title">We Shop 20+ Carriers So You Don't Have To</h2>
+    <p class="section-sub" style="margin:0 auto 36px;">Being independent means we compare rates across 20+ top-rated insurance companies to find your best option — far more than any single-carrier agent ever could.</p>
     <div class="carriers-row stagger">
       <div class="carrier-pill">🛡️ Progressive</div>
       <div class="carrier-pill">🛡️ Mendakota</div>
-      <div class="carrier-pill">🛡️ Safeco</div>
+      <div class="carrier-pill">🛡️ National Security</div>
       <div class="carrier-pill">🛡️ Bristol West</div>
       <div class="carrier-pill">🛡️ Gainsco</div>
-      <div class="carrier-pill">🛡️ Dairyland</div>
+      <div class="carrier-pill">🛡️ Foremost</div>
       <div class="carrier-pill">🛡️ National General</div>
       <div class="carrier-pill">🛡️ + More</div>
     </div>
@@ -912,7 +918,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
         <div class="section-label">Free Quote</div>
         <h2 class="section-title" style="color:white;">Ready to Save on<br/>Your Insurance?</h2>
         <p>Fill out the quick form and one of our local agents will contact you with your best rate options — usually within 1 business day.</p>
-        <div class="q-feature"><div class="qi">🔄</div><div class="qt"><strong>We Shop Multiple Carriers</strong>We compare 8+ companies to find your lowest rate.</div></div>
+        <div class="q-feature"><div class="qi">🔄</div><div class="qt"><strong>We Shop Multiple Carriers</strong>We compare 20+ companies to find your lowest rate.</div></div>
         <div class="q-feature"><div class="qi">⚡</div><div class="qt"><strong>Fast Turnaround</strong>Most quotes ready same day or next business day.</div></div>
         <div class="q-feature"><div class="qi">✅</div><div class="qt"><strong>All Drivers Welcome</strong>Good record, bad record, SR-22 — we find options for everyone.</div></div>
         <div class="q-feature"><div class="qi">📞</div><div class="qt"><strong>Prefer to Call?</strong><a href="tel:6019812911" style="color:#FF8080;font-weight:700;">(601) 981-2911</a></div></div>
@@ -1216,7 +1222,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
         </button>
         <div class="faq-answer">
           <div class="faq-answer-inner">
-            <p>There's no single answer — your rate depends on your driving record, vehicle, age, ZIP code, and the coverage level you choose. What we can tell you is this: <strong>because we shop 8+ carriers, we almost always find a lower rate than if you went to a single-carrier company.</strong> The only way to know your exact number is a free quote, which takes about 5 minutes. Most clients are surprised at what we find.</p>
+            <p>There's no single answer — your rate depends on your driving record, vehicle, age, ZIP code, and the coverage level you choose. What we can tell you is this: <strong>because we shop 20+ carriers, we almost always find a lower rate than if you went to a single-carrier company.</strong> The only way to know your exact number is a free quote, which takes about 5 minutes. Most clients are surprised at what we find.</p>
             <a href="#quote" class="faq-cta-inline">Get My Rate →</a>
           </div>
         </div>
