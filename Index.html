@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Alpha Insurance Agency | Jackson, MS | Since 1995</title>
+<meta name="description" content="Alpha Insurance Agency has proudly served Jackson, MS for over 30 years. Independent agency shopping 8+ carriers for the best rates on auto, home, life, and commercial insurance."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Source+Sans+3:wght@300;400;600;700;900&display=swap"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --red:#C41230;--maroon:#8B0000;--dark:#111111;--charcoal:#222222;
+  --white:#FFFFFF;--offwhite:#F7F7F7;--lightgray:#EEEEEE;
+  --border:#DDDDDD;--muted:#666666;--green:#15803D;--gold:#C9A84C;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Source Sans 3',sans-serif;color:var(--dark);background:var(--white);line-height:1.6;font-size:17px;}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:200;background:var(--dark);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:72px;box-shadow:0 2px 16px rgba(0,0,0,0.5);}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.nav-logo img{height:48px;width:auto;}
+.nav-logo-text .name{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:700;color:var(--white);letter-spacing:0.02em;display:block;}
+.nav-logo-text .tag{font-size:0.65rem;color:#999;letter-spacing:0.1em;text-transform:uppercase;font-style:italic;}
+.nav-links{display:flex;align-items:center;gap:6px;}
+.nav-links a{color:#CCC;font-size:0.88rem;font-weight:600;text-decoration:none;padding:8px 14px;border-radius:6px;transition:all 0.2s;letter-spacing:0.03em;}
+.nav-links a:hover{color:var(--white);background:rgba(255,255,255,0.08);}
+.nav-cta{background:var(--red)!important;color:var(--white)!important;padding:9px 20px!important;border-radius:8px!important;font-weight:700!important;}
+.nav-cta:hover{background:var(--maroon)!important;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;}
+.hamburger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px;}
+.mobile-nav{display:none;position:fixed;top:72px;left:0;right:0;background:var(--dark);flex-direction:column;padding:16px 24px 24px;z-index:199;border-top:1px solid #333;}
+.mobile-nav.open{display:flex;}
+.mobile-nav a{color:#CCC;font-size:1rem;font-weight:600;text-decoration:none;padding:14px 0;border-bottom:1px solid #2A2A2A;}
+.mobile-nav a:last-child{border-bottom:none;}
+
+/* HERO */
+.hero{background:linear-gradient(150deg,#0D0D0D 0%,var(--maroon) 60%,#4A0000 100%);min-height:88vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:80px 32px;}
+.hero-pattern{position:absolute;inset:0;background-image:radial-gradient(circle at 20% 50%,rgba(196,18,48,0.15) 0%,transparent 50%),radial-gradient(circle at 80% 20%,rgba(139,0,0,0.2) 0%,transparent 40%);}
+.hero-tri{position:absolute;right:-60px;top:50%;transform:translateY(-50%);opacity:0.06;}
+.hero-content{position:relative;max-width:760px;margin:0 auto;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:#EEE;font-size:0.78rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;padding:8px 18px;border-radius:30px;margin-bottom:26px;}
+.hero-eyebrow .dot{width:7px;height:7px;background:var(--red);border-radius:50%;}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:3.8rem;font-weight:700;color:var(--white);line-height:1.12;margin-bottom:22px;}
+.hero h1 em{color:#FF8080;font-style:normal;}
+.hero p{font-size:1.2rem;color:#CCC;max-width:600px;line-height:1.75;margin-bottom:38px;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-primary{background:var(--red);color:var(--white);font-size:1rem;font-weight:700;padding:15px 30px;border-radius:10px;text-decoration:none;box-shadow:0 6px 24px rgba(196,18,48,0.45);transition:all 0.2s;display:inline-block;letter-spacing:0.02em;}
+.btn-primary:hover{background:var(--maroon);transform:translateY(-2px);}
+.btn-secondary{background:transparent;color:var(--white);font-size:1rem;font-weight:600;padding:15px 30px;border-radius:10px;text-decoration:none;border:2px solid rgba(255,255,255,0.3);transition:all 0.2s;display:inline-block;}
+.btn-secondary:hover{border-color:rgba(255,255,255,0.6);background:rgba(255,255,255,0.06);}
+.hero-stats{display:flex;gap:40px;margin-top:52px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.1);flex-wrap:wrap;}
+.hero-stat .num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:700;color:var(--white);line-height:1;}
+.hero-stat .num span{color:#FF8080;}
+.hero-stat .label{font-size:0.82rem;color:#AAA;margin-top:4px;letter-spacing:0.05em;}
+
+/* TRUST BAR */
+.trust-bar{background:var(--dark);border-bottom:3px solid var(--red);padding:20px 32px;display:flex;justify-content:center;gap:48px;flex-wrap:wrap;}
+.trust-item{display:flex;align-items:center;gap:10px;font-size:0.9rem;font-weight:700;color:#CCC;letter-spacing:0.02em;}
+.trust-item .icon{font-size:1.3rem;}
+
+/* SECTION BASE */
+.section{padding:88px 32px;}
+.section-inner{max-width:1100px;margin:0 auto;}
+.section-label{font-size:0.72rem;font-weight:900;letter-spacing:0.18em;text-transform:uppercase;color:var(--red);margin-bottom:10px;}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:700;color:var(--dark);line-height:1.2;margin-bottom:12px;}
+.section-sub{font-size:1rem;color:var(--muted);max-width:580px;line-height:1.75;}
+.section-header{margin-bottom:52px;}
+
+/* SERVICES */
+.services-bg{background:var(--offwhite);}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.service-card{background:var(--white);border-radius:14px;padding:30px 26px;border-top:4px solid var(--red);box-shadow:0 2px 16px rgba(0,0,0,0.07);transition:transform 0.2s,box-shadow 0.2s;}
+.service-card:hover{transform:translateY(-4px);box-shadow:0 8px 28px rgba(0,0,0,0.12);}
+.service-icon{font-size:2.2rem;margin-bottom:14px;}
+.service-card h3{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:700;color:var(--dark);margin-bottom:10px;}
+.service-card p{font-size:0.9rem;color:var(--muted);line-height:1.7;}
+.service-card .learn{display:inline-block;margin-top:14px;color:var(--red);font-size:0.88rem;font-weight:700;text-decoration:none;}
+.service-card .learn:hover{text-decoration:underline;}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.about-img-wrap{position:relative;}
+.about-badge{position:absolute;bottom:-20px;right:-20px;background:var(--red);color:var(--white);width:110px;height:110px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 8px 24px rgba(196,18,48,0.4);}
+.about-badge .yr{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;line-height:1;}
+.about-badge .yrlabel{font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;}
+.about-logo-big{width:100%;max-width:380px;background:var(--offwhite);border-radius:16px;padding:48px;display:flex;align-items:center;justify-content:center;border:2px solid var(--border);}
+.about-logo-big img{width:100%;height:auto;}
+.about-text p{font-size:1rem;color:#444;line-height:1.8;margin-bottom:18px;}
+.about-checks{list-style:none;margin:24px 0 30px;}
+.about-checks li{display:flex;align-items:flex-start;gap:12px;font-size:0.97rem;color:var(--dark);font-weight:600;margin-bottom:12px;}
+.about-checks li::before{content:'✓';color:var(--white);background:var(--red);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:900;flex-shrink:0;margin-top:1px;}
+
+/* TESTIMONIALS */
+.testimonials-bg{background:var(--dark);position:relative;overflow:hidden;}
+.testimonials-bg .section-title{color:var(--white);}
+.testimonials-bg .section-label{color:#FF8080;}
+.testimonials-bg .section-sub{color:#999;}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.testi-card{background:#1A1A1A;border-radius:14px;padding:28px 24px;border:1px solid #2A2A2A;border-top:3px solid var(--red);transition:border-color 0.2s;}
+.testi-card:hover{border-color:var(--red);}
+.stars{color:var(--gold);font-size:1rem;margin-bottom:14px;letter-spacing:2px;}
+.testi-text{font-size:0.97rem;color:#CCC;line-height:1.8;margin-bottom:20px;font-style:italic;}
+.testi-text::before{content:'\201C';}
+.testi-text::after{content:'\201D';}
+.testi-author{display:flex;align-items:center;gap:12px;}
+.testi-avatar{width:42px;height:42px;border-radius:50%;background:var(--maroon);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--white);flex-shrink:0;}
+.testi-name{font-size:0.9rem;font-weight:700;color:var(--white);}
+.testi-meta{font-size:0.78rem;color:#777;}
+
+/* CARRIERS */
+.carriers-bg{background:var(--offwhite);}
+.carriers-row{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:12px;}
+.carrier-pill{background:var(--white);border:2px solid var(--border);border-radius:40px;padding:12px 24px;font-size:0.9rem;font-weight:700;color:var(--dark);box-shadow:0 2px 8px rgba(0,0,0,0.05);}
+
+/* QUOTE FORM */
+.quote-bg{background:linear-gradient(135deg,var(--dark) 0%,var(--maroon) 100%);}
+.quote-bg .section-title{color:var(--white);}
+.quote-bg .section-label{color:#FF8080;}
+.quote-bg .section-sub{color:#BBB;}
+.quote-wrap{display:grid;grid-template-columns:1fr 1.4fr;gap:52px;align-items:start;}
+.quote-left p{font-size:0.97rem;color:#AAA;line-height:1.8;margin-bottom:24px;}
+.q-feature{display:flex;align-items:flex-start;gap:13px;margin-bottom:18px;}
+.q-feature .qi{font-size:1.4rem;flex-shrink:0;width:42px;height:42px;background:rgba(255,255,255,0.06);border-radius:10px;display:flex;align-items:center;justify-content:center;}
+.q-feature .qt{font-size:0.9rem;color:#CCC;line-height:1.6;}
+.q-feature .qt strong{display:block;color:var(--white);font-size:0.95rem;margin-bottom:2px;}
+.form-card{background:var(--white);border-radius:16px;padding:36px 32px;box-shadow:0 8px 40px rgba(0,0,0,0.3);}
+.form-card h3{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:var(--dark);margin-bottom:6px;}
+.form-card .fsub{font-size:0.88rem;color:var(--muted);margin-bottom:26px;}
+.field{margin-bottom:18px;}
+label{display:block;font-size:0.95rem;font-weight:700;color:var(--dark);margin-bottom:7px;}
+label .req{color:var(--red);margin-left:2px;}
+input[type="text"],input[type="tel"],input[type="email"],select,textarea{width:100%;font-size:1rem;font-family:'Source Sans 3',sans-serif;padding:13px 15px;border:2px solid var(--border);border-radius:9px;color:var(--dark);background:var(--white);-webkit-appearance:none;appearance:none;transition:border-color 0.2s,box-shadow 0.2s;}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px rgba(196,18,48,0.1);}
+input::placeholder,textarea::placeholder{color:#BBB;}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='%23666' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;padding-right:38px;cursor:pointer;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.consent-box{background:#FFF5F5;border:2px solid #FFCCCC;border-radius:10px;padding:16px;margin-bottom:18px;}
+.consent-row{display:flex;gap:12px;align-items:flex-start;}
+.consent-row input[type="checkbox"]{width:22px;height:22px;min-width:22px;margin-top:2px;cursor:pointer;accent-color:var(--red);}
+.consent-text{font-size:0.8rem;color:#333;line-height:1.6;}
+.consent-text strong{color:var(--maroon);}
+.consent-note{font-size:0.72rem;color:var(--muted);margin-top:10px;padding-top:10px;border-top:1px solid #FFCCCC;line-height:1.6;}
+.submit-btn{width:100%;background:var(--red);color:var(--white);font-size:1.05rem;font-weight:700;font-family:'Source Sans 3',sans-serif;padding:16px;border:none;border-radius:10px;cursor:pointer;transition:all 0.2s;letter-spacing:0.02em;box-shadow:0 4px 14px rgba(196,18,48,0.3);}
+.submit-btn:hover{background:var(--maroon);transform:translateY(-1px);}
+.submit-btn:disabled{background:#AAA;cursor:not-allowed;transform:none;}
+.submit-note{text-align:center;font-size:0.75rem;color:var(--muted);margin-top:10px;line-height:1.6;}
+.success-msg{display:none;background:#F0FDF4;border:2px solid var(--green);border-radius:12px;padding:28px;text-align:center;}
+.success-msg .check{font-size:2.8rem;margin-bottom:8px;}
+.success-msg h4{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--green);margin-bottom:8px;}
+.success-msg p{font-size:0.9rem;color:#333;line-height:1.7;}
+
+/* CTA BAND */
+.cta-band{background:var(--red);padding:52px 32px;text-align:center;}
+.cta-band h2{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;color:var(--white);margin-bottom:12px;}
+.cta-band p{font-size:1rem;color:rgba(255,255,255,0.8);margin-bottom:28px;}
+.cta-band a{background:var(--white);color:var(--red);font-size:1.1rem;font-weight:700;padding:15px 36px;border-radius:10px;text-decoration:none;display:inline-block;transition:all 0.2s;box-shadow:0 4px 16px rgba(0,0,0,0.2);}
+.cta-band a:hover{background:var(--offwhite);transform:translateY(-2px);}
+
+/* FOOTER */
+footer{background:var(--dark);padding:52px 32px 28px;color:#AAA;}
+.footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:40px;}
+.footer-brand .logo-wrap{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+.footer-brand .logo-wrap img{height:52px;width:auto;}
+.footer-brand .fname{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:700;color:var(--white);}
+.footer-brand .ftag{font-size:0.72rem;color:#666;font-style:italic;}
+.footer-brand p{font-size:0.85rem;line-height:1.8;color:#888;max-width:300px;}
+.footer-col h4{font-size:0.8rem;font-weight:900;letter-spacing:0.14em;text-transform:uppercase;color:var(--white);margin-bottom:16px;}
+.footer-col a,.footer-col p{display:block;font-size:0.88rem;color:#888;text-decoration:none;margin-bottom:10px;transition:color 0.2s;line-height:1.6;}
+.footer-col a:hover{color:var(--white);}
+.footer-col .phone{color:var(--red);font-size:1rem;font-weight:700;}
+.footer-bottom{max-width:1100px;margin:0 auto;padding-top:24px;border-top:1px solid #222;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:0.78rem;color:#555;}
+.footer-bottom a{color:#555;text-decoration:none;}
+
+/* FLOATING CALL */
+.float-call{position:fixed;bottom:24px;right:24px;background:var(--red);color:var(--white);font-size:0.9rem;font-weight:700;padding:13px 22px;border-radius:40px;text-decoration:none;box-shadow:0 6px 24px rgba(196,18,48,0.5);z-index:500;display:flex;align-items:center;gap:9px;transition:all 0.2s;animation:pulse 3s infinite;}
+.float-call:hover{background:var(--maroon);transform:translateY(-2px);}
+@keyframes pulse{0%,100%{box-shadow:0 6px 24px rgba(196,18,48,0.5);}50%{box-shadow:0 6px 36px rgba(196,18,48,0.8);}}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .hero h1{font-size:2.8rem;}
+  .services-grid{grid-template-columns:repeat(2,1fr);}
+  .about-grid{grid-template-columns:1fr;gap:36px;}
+  .about-img-wrap{display:none;}
+  .testi-grid{grid-template-columns:repeat(2,1fr);}
+  .quote-wrap{grid-template-columns:1fr;}
+  .quote-left{display:none;}
+  .footer-inner{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:640px){
+  nav{padding:0 18px;}
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .hero{padding:60px 20px;}
+  .hero h1{font-size:2.1rem;}
+  .hero-stats{gap:28px;}
+  .hero-stat .num{font-size:2.2rem;}
+  .section{padding:60px 20px;}
+  .section-title{font-size:1.9rem;}
+  .services-grid{grid-template-columns:1fr;}
+  .testi-grid{grid-template-columns:1fr;}
+  .trust-bar{gap:18px;padding:16px 20px;}
+  .form-card{padding:24px 18px;}
+  .two-col{grid-template-columns:1fr;}
+  .footer-inner{grid-template-columns:1fr;}
+  .footer-bottom{flex-direction:column;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="topnav">
+  <a href="#" class="nav-logo">
+    <img src="logo.png" alt="Alpha Insurance Agency"/>
+    <div class="nav-logo-text">
+      <span class="name">Alpha Insurance Agency</span>
+      <span class="tag">"Protecting Your Tomorrow, Today!"</span>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#about">About Us</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#quote" class="nav-cta">Get a Free Quote</a>
+  </div>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#about" onclick="toggleMenu()">About Us</a>
+  <a href="#testimonials" onclick="toggleMenu()">Testimonials</a>
+  <a href="#quote" onclick="toggleMenu()">Get a Free Quote</a>
+  <a href="tel:6019812911">📞 (601) 981-2911</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-pattern"></div>
+  <svg class="hero-tri" width="700" height="700" viewBox="0 0 700 700" fill="none">
+    <polygon points="350,50 700,650 0,650" stroke="white" stroke-width="1" fill="none"/>
+    <polygon points="350,150 630,600 70,600" stroke="white" stroke-width="1" fill="none" opacity="0.6"/>
+    <polygon points="350,250 560,550 140,550" stroke="white" stroke-width="1" fill="none" opacity="0.3"/>
+  </svg>
+  <div class="hero-content">
+    <div class="hero-eyebrow"><span class="dot"></span> Serving Jackson, MS &amp; Surrounding Areas Since 1995</div>
+    <h1>Your Family Deserves<br/><em>Real Protection.</em></h1>
+    <p>Alpha Insurance Agency is an independent agency with over 30 years of experience. We shop multiple carriers to find you the best coverage at the lowest price — for auto, home, life, commercial, and burial insurance.</p>
+    <div class="hero-btns">
+      <a href="#quote" class="btn-primary">Get My Free Quote →</a>
+      <a href="tel:6019812911" class="btn-secondary">📞 (601) 981-2911</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">30<span>+</span></div><div class="label">Years in Business</div></div>
+      <div class="hero-stat"><div class="num">25<span>+</span></div><div class="label">Years Same Location</div></div>
+      <div class="hero-stat"><div class="num">8<span>+</span></div><div class="label">Avg. Client Relationship</div></div>
+      <div class="hero-stat"><div class="num">8<span>+</span></div><div class="label">Carriers We Shop</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><span class="icon">🏢</span><span>Same Jackson Location Since 1999</span></div>
+  <div class="trust-item"><span class="icon">🔄</span><span>8+ Carriers Compared</span></div>
+  <div class="trust-item"><span class="icon">✅</span><span>All Drivers Welcome</span></div>
+  <div class="trust-item"><span class="icon">⚡</span><span>Fast Same-Day Quotes</span></div>
+  <div class="trust-item"><span class="icon">🤝</span><span>Family-Owned &amp; Operated</span></div>
+</div>
+
+<!-- SERVICES -->
+<section class="section services-bg" id="services">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">What We Cover</div>
+      <h2 class="section-title">Insurance for Every Part of Your Life</h2>
+      <p class="section-sub">As an independent agency, we're not tied to one carrier. We find the right fit for your situation — not just the easiest sale.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🚗</div>
+        <h3>Auto Insurance</h3>
+        <p>Liability, full coverage, SR-22, high-risk drivers — we find competitive rates across multiple carriers for every situation. All drivers welcome.</p>
+        <a href="#quote" class="learn">Get a Quote →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏠</div>
+        <h3>Home Insurance</h3>
+        <p>Protect your most valuable asset. We shop homeowners, renters, and mobile home policies to find you the best coverage at the best price.</p>
+        <a href="#quote" class="learn">Get a Quote →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏢</div>
+        <h3>Commercial Insurance</h3>
+        <p>Business owners policy, commercial auto, general liability, and more. We protect your business the same way we protect your family.</p>
+        <a href="#quote" class="learn">Get a Quote →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">❤️</div>
+        <h3>Life Insurance</h3>
+        <p>Term, whole life, and universal life policies. Give your family the financial security they deserve when it matters most.</p>
+        <a href="#quote" class="learn">Get a Quote →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🕊️</div>
+        <h3>Burial Insurance</h3>
+        <p>Affordable final expense coverage that gives your family peace of mind. Simple approval process, affordable monthly premiums.</p>
+        <a href="#quote" class="learn">Get a Quote →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🚛</div>
+        <h3>Commercial Auto</h3>
+        <p>Coverage for trucks, fleets, and commercial vehicles. We understand the unique needs of Mississippi business owners and owner-operators.</p>
+        <a href="#quote" class="learn">Get a Quote →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <div class="about-logo-big"><img src="logo.png" alt="Alpha Insurance Agency"/></div>
+        <div class="about-badge"><div class="yr">30</div><div class="yrlabel">Years of<br/>Service</div></div>
+      </div>
+      <div class="about-text">
+        <div class="section-label">Our Story</div>
+        <h2 class="section-title">Jackson's Independent Insurance Agency</h2>
+        <p>Alpha Insurance Agency has been a cornerstone of the Jackson, Mississippi community for over 30 years. From our same location we've called home for more than 25 years, we've built lasting relationships with thousands of families and businesses across the state.</p>
+        <p>As an independent agency, we work for you — not for any single insurance company. That means we compare rates from 8+ carriers to find the policy that truly fits your life, your budget, and your needs.</p>
+        <ul class="about-checks">
+          <li>Licensed independent agency — we shop multiple carriers for you</li>
+          <li>Same trusted office location for over 25 years</li>
+          <li>Average client relationship of 8+ years</li>
+          <li>Family-owned with deep roots in the Jackson community</li>
+          <li>All drivers and all situations welcome — no judgment</li>
+          <li>Fast quotes — often same day</li>
+        </ul>
+        <a href="#quote" class="btn-primary">Get Your Free Quote Today →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials-bg" id="testimonials">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">What Our Clients Say</div>
+      <h2 class="section-title">Trusted by Families Across Mississippi</h2>
+      <p class="section-sub">We don't just write policies — we build relationships that last for years. Here's what our clients have to say.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">I've been with Alpha Insurance for over 10 years. They always find me the best rate and actually pick up the phone when I call. That means everything to me.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">D</div>
+          <div><div class="testi-name">Diane W.</div><div class="testi-meta">Client since 2014 · Auto &amp; Home</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">When my previous insurance dropped me after an accident, Alpha was the only agency that found me coverage I could afford. They never gave up on me.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">M</div>
+          <div><div class="testi-name">Marcus J.</div><div class="testi-meta">Client since 2017 · Auto</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">My whole family is covered through Alpha — my cars, my house, my business. They treat us like family and always make sure we're getting the best deal possible.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">S</div>
+          <div><div class="testi-name">Sandra L.</div><div class="testi-meta">Client since 2011 · Auto, Home &amp; Commercial</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">I was paying way too much at my old agency. Alpha saved me over $600 a year on my auto insurance just by shopping around. I wish I had called them sooner.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">T</div>
+          <div><div class="testi-name">Thomas G.</div><div class="testi-meta">Client since 2020 · Auto</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">As a small business owner, I need someone I can trust. Alpha has been my go-to for 8 years. Professional, reliable, and always responsive when I need them.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">R</div>
+          <div><div class="testi-name">Robert C.</div><div class="testi-meta">Client since 2016 · Commercial &amp; Auto</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">The team at Alpha helped me get burial insurance for my mother at a price she could afford on a fixed income. They were patient, kind, and never pushy. True professionals.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">L</div>
+          <div><div class="testi-name">Linda M.</div><div class="testi-meta">Client since 2019 · Burial &amp; Auto</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CARRIERS -->
+<section class="section carriers-bg">
+  <div class="section-inner" style="text-align:center;">
+    <div class="section-label">Our Carrier Network</div>
+    <h2 class="section-title">We Shop 8+ Carriers So You Don't Have To</h2>
+    <p class="section-sub" style="margin:0 auto 36px;">Being independent means we compare rates across multiple top-rated insurance companies to find your best option.</p>
+    <div class="carriers-row">
+      <div class="carrier-pill">🛡️ Progressive</div>
+      <div class="carrier-pill">🛡️ Mendakota</div>
+      <div class="carrier-pill">🛡️ Safeco</div>
+      <div class="carrier-pill">🛡️ Bristol West</div>
+      <div class="carrier-pill">🛡️ Gainsco</div>
+      <div class="carrier-pill">🛡️ Dairyland</div>
+      <div class="carrier-pill">🛡️ National General</div>
+      <div class="carrier-pill">🛡️ + More</div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE FORM -->
+<section class="section quote-bg" id="quote">
+  <div class="section-inner">
+    <div class="quote-wrap">
+      <div class="quote-left">
+        <div class="section-label">Free Quote</div>
+        <h2 class="section-title" style="color:white;">Ready to Save on<br/>Your Insurance?</h2>
+        <p>Fill out the quick form and one of our local agents will contact you with your best rate options — usually within 1 business day.</p>
+        <div class="q-feature"><div class="qi">🔄</div><div class="qt"><strong>We Shop Multiple Carriers</strong>We compare 8+ companies to find your lowest rate.</div></div>
+        <div class="q-feature"><div class="qi">⚡</div><div class="qt"><strong>Fast Turnaround</strong>Most quotes ready same day or next business day.</div></div>
+        <div class="q-feature"><div class="qi">✅</div><div class="qt"><strong>All Drivers Welcome</strong>Good record, bad record, SR-22 — we find options for everyone.</div></div>
+        <div class="q-feature"><div class="qi">📞</div><div class="qt"><strong>Prefer to Call?</strong><a href="tel:6019812911" style="color:#FF8080;font-weight:700;">(601) 981-2911</a></div></div>
+      </div>
+      <div>
+        <div class="form-card">
+          <h3>Get Your Free Quote</h3>
+          <p class="fsub">No obligation. Takes about 2 minutes.</p>
+          <form id="quoteForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div class="two-col">
+              <div class="field"><label>First Name <span class="req">*</span></label><input type="text" name="first_name" placeholder="Mary" required/></div>
+              <div class="field"><label>Last Name <span class="req">*</span></label><input type="text" name="last_name" placeholder="Johnson" required/></div>
+            </div>
+            <div class="two-col">
+              <div class="field"><label>Phone Number <span class="req">*</span></label><input type="tel" name="phone" placeholder="(601) 555-0000" required/></div>
+              <div class="field"><label>ZIP Code <span class="req">*</span></label><input type="text" name="zip" placeholder="39201" maxlength="5" required/></div>
+            </div>
+            <div class="field"><label>Email Address</label><input type="email" name="email" placeholder="optional — for quote delivery"/></div>
+            <div class="field">
+              <label>What Are You Looking For? <span class="req">*</span></label>
+              <select name="insurance_type" required>
+                <option value="">Select coverage type</option>
+                <option>Auto Insurance</option>
+                <option>Home Insurance</option>
+                <option>Commercial / Business Insurance</option>
+                <option>Life Insurance</option>
+                <option>Burial Insurance</option>
+                <option>Multiple Lines (Bundle)</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Your Current Situation</label>
+              <select name="situation">
+                <option value="">Select your situation</option>
+                <option>I want a lower rate than I'm paying now</option>
+                <option>My policy was cancelled — I need new coverage</option>
+                <option>I'm a new driver / first time insured</option>
+                <option>I bought a new vehicle</option>
+                <option>I need SR-22 coverage</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="consent-box">
+              <div class="consent-row">
+                <input type="checkbox" id="tcpa" name="tcpa_consent" required/>
+                <div class="consent-text">
+                  <strong>I agree to be contacted by Alpha Insurance Agency</strong> regarding my insurance quote request. By checking this box, I consent to receive calls and/or text messages from Alpha Insurance Agency at the phone number provided. Consent is not required to obtain a quote or purchase a policy.
+                  <div class="consent-note">Message and data rates may apply. Reply STOP to opt out of text messages at any time. This consent applies to Alpha Insurance Agency only. Your information is never sold to third parties.</div>
+                </div>
+              </div>
+            </div>
+            <input type="hidden" name="_subject" value="New Quote Request — Alpha Insurance Agency"/>
+            <button type="submit" class="submit-btn">Request My Free Quote →</button>
+            <p class="submit-note">🔒 Your information is secure and never shared or sold.</p>
+          </form>
+          <div class="success-msg" id="successMsg">
+            <div class="check">✅</div>
+            <h4>Quote Request Received!</h4>
+            <p>Thank you! One of our agents will be in touch shortly.<br/>Questions? Call us at <a href="tel:6019812911" style="color:var(--red);font-weight:700;">(601) 981-2911</a>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <h2>Have Questions? We're a Real Phone Call Away.</h2>
+  <p>No bots. No call centers. Just local agents who know Mississippi and know insurance.</p>
+  <a href="tel:6019812911">📞 Call (601) 981-2911</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo-wrap"><img src="logo.png" alt="Alpha Insurance Agency"/><div><div class="fname">Alpha Insurance Agency</div><div class="ftag">"Protecting Your Tomorrow, Today!"</div></div></div>
+      <p>Independent insurance agency serving Jackson, MS and surrounding communities for over 30 years. We shop multiple carriers to find you the best coverage at the best price.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Our Services</h4>
+      <a href="#quote">Auto Insurance</a>
+      <a href="#quote">Home Insurance</a>
+      <a href="#quote">Commercial Insurance</a>
+      <a href="#quote">Life Insurance</a>
+      <a href="#quote">Burial Insurance</a>
+      <a href="#quote">Commercial Auto</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <a href="tel:6019812911" class="phone">📞 (601) 981-2911</a>
+      <p>Jackson, Mississippi</p>
+      <p>Mon–Fri: 9am – 5pm</p>
+      <p>Sat: By Appointment</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Alpha Insurance Agency, Inc. All rights reserved. | Jackson, Mississippi</span>
+    <span>Licensed Independent Insurance Agency | Mississippi Department of Insurance</span>
+  </div>
+</footer>
+
+<!-- FLOATING CALL -->
+<a href="tel:6019812911" class="float-call" id="floatCall">📞 Call Now</a>
+
+<script>
+function toggleMenu(){document.getElementById('mobileNav').classList.toggle('open');}
+document.addEventListener('click',function(e){
+  const nav=document.getElementById('mobileNav');
+  const btn=document.querySelector('.hamburger');
+  if(nav.classList.contains('open')&&!nav.contains(e.target)&&!btn.contains(e.target))nav.classList.remove('open');
+});
+const form=document.getElementById('quoteForm');
+const success=document.getElementById('successMsg');
+if(form){
+  form.addEventListener('submit',async function(e){
+    e.preventDefault();
+    const btn=form.querySelector('.submit-btn');
+    btn.disabled=true;btn.textContent='Sending...';
+    try{
+      const res=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
+      if(res.ok){form.style.display='none';success.style.display='block';}
+      else{btn.disabled=false;btn.textContent='Request My Free Quote →';alert('Something went wrong. Please call us at (601) 981-2911.');}
+    }catch(err){btn.disabled=false;btn.textContent='Request My Free Quote →';alert('Please call us directly at (601) 981-2911.');}
+  });
+}
+const observer=new IntersectionObserver((entries)=>{
+  const f=document.getElementById('floatCall');
+  entries.forEach(e=>{if(f)f.style.display=e.isIntersecting?'none':'flex';});
+},{threshold:0.3});
+const qs=document.getElementById('quote');
+if(qs)observer.observe(qs);
+</script>
+</body>
+</html>
