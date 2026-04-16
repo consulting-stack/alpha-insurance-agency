@@ -310,6 +310,212 @@ footer{background:var(--dark);padding:52px 32px 28px;color:#AAA;}
   .area-grid{grid-template-columns:repeat(2,1fr);}
 }
 
+
+/* ── PREMIUM ENHANCEMENTS ── */
+/* Page load */
+body{opacity:0;transition:opacity 0.4s ease;}
+body.loaded{opacity:1;}
+
+/* Scroll reveal */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-left{opacity:0;transform:translateX(-40px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.reveal-left.visible{opacity:1;transform:translateX(0);}
+.reveal-right{opacity:0;transform:translateX(40px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.reveal-right.visible{opacity:1;transform:translateX(0);}
+.reveal-scale{opacity:0;transform:scale(0.92);transition:opacity 0.55s ease,transform 0.55s ease;}
+.reveal-scale.visible{opacity:1;transform:scale(1);}
+
+/* Stagger children */
+.stagger > *{opacity:0;transform:translateY(24px);transition:opacity 0.5s ease,transform 0.5s ease;}
+.stagger.visible > *:nth-child(1){opacity:1;transform:none;transition-delay:0.05s;}
+.stagger.visible > *:nth-child(2){opacity:1;transform:none;transition-delay:0.15s;}
+.stagger.visible > *:nth-child(3){opacity:1;transform:none;transition-delay:0.25s;}
+.stagger.visible > *:nth-child(4){opacity:1;transform:none;transition-delay:0.35s;}
+.stagger.visible > *:nth-child(5){opacity:1;transform:none;transition-delay:0.45s;}
+.stagger.visible > *:nth-child(6){opacity:1;transform:none;transition-delay:0.55s;}
+
+/* Hero text animation */
+.hero-eyebrow{animation:fadeDown 0.7s ease both;animation-delay:0.2s;}
+.hero h1{animation:fadeUp 0.8s ease both;animation-delay:0.35s;}
+.hero p{animation:fadeUp 0.8s ease both;animation-delay:0.5s;}
+.hero-btns{animation:fadeUp 0.8s ease both;animation-delay:0.65s;}
+.hero-stats{animation:fadeUp 0.8s ease both;animation-delay:0.8s;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-16px);}to{opacity:1;transform:translateY(0);}}
+
+/* Stat counter */
+.hero-stat .num{
+  background:linear-gradient(135deg,#FFFFFF 0%,#FF8080 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+/* Nav scroll effect */
+nav.scrolled{background:rgba(10,10,10,0.96);backdrop-filter:blur(12px);box-shadow:0 2px 20px rgba(0,0,0,0.4);}
+nav{transition:background 0.3s,box-shadow 0.3s;}
+
+/* Service card hover */
+.service-card::before{
+  content:'';position:absolute;inset:0;border-radius:14px;
+  background:linear-gradient(135deg,rgba(196,18,48,0.04) 0%,transparent 100%);
+  opacity:0;transition:opacity 0.3s;
+}
+.service-card{position:relative;}
+.service-card:hover::before{opacity:1;}
+.service-icon{transition:transform 0.3s;}
+.service-card:hover .service-icon{transform:scale(1.15);}
+
+/* Section dividers */
+.section-divider{
+  height:1px;
+  background:linear-gradient(to right,transparent,var(--border),transparent);
+  margin:0;
+}
+
+/* Stat bar */
+.stat-bar{
+  background:var(--dark);
+  padding:28px 32px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1px;
+  background:var(--dark);
+}
+.stat-bar-item{
+  text-align:center;
+  padding:24px 16px;
+  background:var(--dark);
+  position:relative;
+}
+.stat-bar-item::after{
+  content:'';
+  position:absolute;right:0;top:20%;height:60%;
+  width:1px;background:rgba(255,255,255,0.08);
+}
+.stat-bar-item:last-child::after{display:none;}
+.stat-bar-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.6rem;font-weight:700;
+  color:var(--white);line-height:1;
+  display:block;margin-bottom:6px;
+}
+.stat-bar-num span{color:#FF8080;}
+.stat-bar-label{
+  font-size:0.8rem;color:#888;
+  letter-spacing:0.08em;text-transform:uppercase;
+  font-weight:600;
+}
+
+/* Agent profiles */
+.agents-bg{background:var(--dark);}
+.agents-bg .section-title{color:var(--white);}
+.agents-bg .section-label{color:#FF8080;}
+.agents-bg .section-sub{color:#999;}
+.agents-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:700px;margin:0 auto;}
+.agent-card{
+  background:#1A1A1A;border-radius:16px;
+  padding:32px 28px;text-align:center;
+  border:1px solid #2A2A2A;
+  transition:border-color 0.2s,transform 0.2s;
+}
+.agent-card:hover{border-color:var(--red);transform:translateY(-3px);}
+.agent-avatar{
+  width:96px;height:96px;border-radius:50%;
+  background:linear-gradient(135deg,var(--maroon),var(--dark));
+  border:3px solid var(--red);
+  margin:0 auto 16px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.2rem;font-weight:700;color:var(--white);
+  position:relative;overflow:hidden;
+}
+.agent-avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
+.agent-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.35rem;font-weight:700;
+  color:var(--white);margin-bottom:4px;
+}
+.agent-role{font-size:0.78rem;color:var(--red);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;}
+.agent-bio{font-size:0.88rem;color:#888;line-height:1.7;}
+
+/* Video section */
+.video-wrap{
+  position:relative;
+  background:var(--dark);
+  border-radius:16px;
+  overflow:hidden;
+  aspect-ratio:16/9;
+  max-width:720px;
+  margin:0 auto;
+  border:1px solid #2A2A2A;
+  cursor:pointer;
+}
+.video-placeholder{
+  width:100%;height:100%;
+  background:linear-gradient(135deg,#1A0000 0%,var(--maroon) 50%,#0A0A0A 100%);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:16px;
+  transition:opacity 0.2s;
+}
+.video-placeholder:hover{opacity:0.9;}
+.video-play{
+  width:72px;height:72px;border-radius:50%;
+  background:var(--red);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.8rem;
+  box-shadow:0 0 0 0 rgba(196,18,48,0.5);
+  animation:ripple 2s infinite;
+}
+@keyframes ripple{
+  0%{box-shadow:0 0 0 0 rgba(196,18,48,0.5);}
+  70%{box-shadow:0 0 0 20px rgba(196,18,48,0);}
+  100%{box-shadow:0 0 0 0 rgba(196,18,48,0);}
+}
+.video-caption{color:#CCC;font-size:0.95rem;font-weight:600;letter-spacing:0.03em;}
+
+/* Smooth link underlines */
+.service-card .learn{
+  position:relative;
+  display:inline-block;
+}
+.service-card .learn::after{
+  content:'';position:absolute;bottom:-2px;left:0;
+  width:0;height:2px;background:var(--red);
+  transition:width 0.25s ease;
+}
+.service-card .learn:hover::after{width:100%;}
+
+/* Quote form inputs refinement */
+input[type="text"]:focus,input[type="tel"]:focus,
+input[type="email"]:focus,select:focus,textarea:focus{
+  transform:translateY(-1px);
+}
+
+/* CTA band animation */
+.cta-band a{position:relative;overflow:hidden;}
+.cta-band a::before{
+  content:'';position:absolute;inset:0;
+  background:rgba(0,0,0,0.08);
+  transform:translateX(-100%);
+  transition:transform 0.3s ease;
+}
+.cta-band a:hover::before{transform:translateX(0);}
+
+/* Footer link hover */
+.footer-col a{position:relative;}
+
+/* Mobile stat bar */
+@media(max-width:768px){
+  .stat-bar{grid-template-columns:repeat(2,1fr);}
+  .agents-grid{grid-template-columns:1fr;}
+}
+@media(max-width:480px){
+  .stat-bar{grid-template-columns:1fr 1fr;}
+  .stat-bar-num{font-size:2rem;}
+}
+
 </style>
 </head>
 <body>
@@ -326,6 +532,7 @@ footer{background:var(--dark);padding:52px 32px 28px;color:#AAA;}
   <div class="nav-links">
     <a href="#services">Services</a>
     <a href="#about">About Us</a>
+    <a href="#team">Our Team</a>
     <a href="#testimonials">Testimonials</a>
     <a href="#blog">Blog</a>
     <a href="#faq">FAQ</a>
@@ -338,6 +545,7 @@ footer{background:var(--dark);padding:52px 32px 28px;color:#AAA;}
 <div class="mobile-nav" id="mobileNav">
   <a href="#services" onclick="toggleMenu()">Services</a>
   <a href="#about" onclick="toggleMenu()">About Us</a>
+  <a href="#team" onclick="toggleMenu()">Our Team</a>
   <a href="#testimonials" onclick="toggleMenu()">Testimonials</a>
   <a href="#blog" onclick="toggleMenu()">Blog</a>
   <a href="#faq" onclick="toggleMenu()">FAQ</a>
@@ -379,15 +587,36 @@ footer{background:var(--dark);padding:52px 32px 28px;color:#AAA;}
   <div class="trust-item"><span class="icon">🤝</span><span>Family-Owned &amp; Operated</span></div>
 </div>
 
+
+<!-- STAT BAR -->
+<div class="stat-bar" id="statBar">
+  <div class="stat-bar-item">
+    <span class="stat-bar-num"><span class="counter" data-target="30">0</span><span style="color:#FF8080">+</span></span>
+    <span class="stat-bar-label">Years in Business</span>
+  </div>
+  <div class="stat-bar-item">
+    <span class="stat-bar-num"><span class="counter" data-target="25">0</span><span style="color:#FF8080">+</span></span>
+    <span class="stat-bar-label">Years Same Location</span>
+  </div>
+  <div class="stat-bar-item">
+    <span class="stat-bar-num"><span class="counter" data-target="500">0</span><span style="color:#FF8080">+</span></span>
+    <span class="stat-bar-label">Families Served</span>
+  </div>
+  <div class="stat-bar-item">
+    <span class="stat-bar-num"><span class="counter" data-target="8">0</span><span style="color:#FF8080">+</span></span>
+    <span class="stat-bar-label">Carriers Compared</span>
+  </div>
+</div>
+
 <!-- SERVICES -->
 <section class="section services-bg" id="services">
   <div class="section-inner">
-    <div class="section-header">
+    <div class="section-header reveal">
       <div class="section-label">What We Cover</div>
       <h2 class="section-title">Insurance for Every Part of Your Life</h2>
       <p class="section-sub">As an independent agency, we're not tied to one carrier. We find the right fit for your situation — not just the easiest sale.</p>
     </div>
-    <div class="services-grid">
+    <div class="services-grid stagger">
       <div class="service-card">
         <div class="service-icon">🚗</div>
         <h3>Auto Insurance</h3>
@@ -455,10 +684,49 @@ footer{background:var(--dark);padding:52px 32px 28px;color:#AAA;}
   </div>
 </section>
 
+
+<!-- MEET THE TEAM -->
+<section class="section agents-bg" id="team">
+  <div class="section-inner">
+    <div class="section-header" style="text-align:center;">
+      <div class="section-label reveal">The People Behind Alpha</div>
+      <h2 class="section-title reveal">30 Years of Jackson Families<br/>Cared for by Our Family</h2>
+      <p class="section-sub reveal" style="margin:0 auto 48px;">We're not a call center. We're not a website. We're real people in Jackson, Mississippi — and we answer the phone.</p>
+    </div>
+
+    <!-- Video welcome -->
+    <div class="reveal" style="margin-bottom:56px;">
+      <div class="video-wrap" id="videoWrap">
+        <div class="video-placeholder">
+          <div class="video-play">▶</div>
+          <div class="video-caption">Welcome from Amanda Frizell — Agency Owner</div>
+          <div style="font-size:0.78rem;color:#666;margin-top:4px;">Video coming soon</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Agent profiles -->
+    <div class="agents-grid stagger">
+      <div class="agent-card">
+        <div class="agent-avatar">A</div>
+        <div class="agent-name">Amanda Frizell</div>
+        <div class="agent-role">Agency Owner · 30 Years</div>
+        <div class="agent-bio">Amanda has been serving Jackson families since 1995. Her deep knowledge of Mississippi insurance markets and genuine care for every client is why families stay with Alpha for decades.</div>
+      </div>
+      <div class="agent-card">
+        <div class="agent-avatar">M</div>
+        <div class="agent-name">Monica Ray</div>
+        <div class="agent-role">Senior Agent</div>
+        <div class="agent-bio">Monica brings years of experience across auto, home, and commercial lines. She knows every carrier we work with inside and out — and she'll find you the best rate available.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- TESTIMONIALS -->
 <section class="section testimonials-bg" id="testimonials">
   <div class="section-inner">
-    <div class="section-header">
+    <div class="section-header reveal">
       <div class="section-label">What Our Clients Say</div>
       <h2 class="section-title">Trusted by Families Across Mississippi</h2>
       <p class="section-sub">We don't just write policies — we build relationships that last for years. Here's what our clients have to say.</p>
@@ -508,6 +776,85 @@ function startBlogTimer(){ blogTimer = setInterval(()=>goBlog(blogIdx+1), 7000);
 function resetBlogTimer(){ clearInterval(blogTimer); startBlogTimer(); }
 document.addEventListener('DOMContentLoaded', initBlog);
 
+
+// Page load
+window.addEventListener('load', () => document.body.classList.add('loaded'));
+
+// Nav scroll
+window.addEventListener('scroll', () => {
+  document.getElementById('topnav').classList.toggle('scrolled', window.scrollY > 60);
+}, {passive:true});
+
+// Intersection Observer for scroll reveals
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting) {
+      e.target.classList.add('visible');
+      revealObserver.unobserve(e.target);
+    }
+  });
+}, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale,.stagger').forEach(el => {
+  revealObserver.observe(el);
+});
+
+// Counter animation
+function animateCounter(el){
+  const target = parseInt(el.dataset.target);
+  const duration = 1800;
+  const step = target / (duration / 16);
+  let current = 0;
+  const timer = setInterval(() => {
+    current = Math.min(current + step, target);
+    el.textContent = Math.floor(current);
+    if(current >= target) clearInterval(timer);
+  }, 16);
+}
+
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting) {
+      e.target.querySelectorAll('.counter').forEach(animateCounter);
+      counterObserver.unobserve(e.target);
+    }
+  });
+}, {threshold:0.3});
+
+const statBar = document.getElementById('statBar');
+if(statBar) counterObserver.observe(statBar);
+
+// Also animate hero stats
+const heroStats = document.querySelector('.hero-stats');
+if(heroStats){
+  heroStats.querySelectorAll('.num').forEach(num => {
+    const text = num.textContent;
+    const match = text.match(/\d+/);
+    if(match){
+      const target = parseInt(match[0]);
+      const suffix = text.replace(match[0],'');
+      let current = 0;
+      const step = target / 60;
+      const timer = setInterval(() => {
+        current = Math.min(current + step, target);
+        num.innerHTML = `${Math.floor(current)}<span>${suffix}</span>`;
+        if(current >= target) clearInterval(timer);
+      }, 16);
+    }
+  });
+}
+
+// Smooth scroll for all anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if(target){
+      e.preventDefault();
+      target.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+  });
+});
+
 </script>
     </div>
     <div style="text-align:center;margin-top:44px;padding:32px;background:#1A1A1A;border-radius:16px;border:1px solid #2A2A2A;">
@@ -544,7 +891,7 @@ document.addEventListener('DOMContentLoaded', initBlog);
     <div class="section-label">Our Carrier Network</div>
     <h2 class="section-title">We Shop 8+ Carriers So You Don't Have To</h2>
     <p class="section-sub" style="margin:0 auto 36px;">Being independent means we compare rates across multiple top-rated insurance companies to find your best option.</p>
-    <div class="carriers-row">
+    <div class="carriers-row stagger">
       <div class="carrier-pill">🛡️ Progressive</div>
       <div class="carrier-pill">🛡️ Mendakota</div>
       <div class="carrier-pill">🛡️ Safeco</div>
@@ -643,7 +990,7 @@ document.addEventListener('DOMContentLoaded', initBlog);
       <h2 class="section-title">Proudly Serving Central Mississippi</h2>
       <p class="section-sub" style="margin:0 auto;">Based in Jackson for over 25 years, we serve families and businesses across the greater metro area and beyond.</p>
     </div>
-    <div class="area-grid">
+    <div class="area-grid stagger">
       <div class="area-card"><div class="area-icon">🏙️</div><div class="area-city">Jackson</div><div class="area-county">Hinds County</div></div>
       <div class="area-card"><div class="area-icon">🏘️</div><div class="area-city">Brandon</div><div class="area-county">Rankin County</div></div>
       <div class="area-card"><div class="area-icon">🏘️</div><div class="area-city">Flowood</div><div class="area-county">Rankin County</div></div>
@@ -849,7 +1196,7 @@ document.addEventListener('DOMContentLoaded', initBlog);
     </div>
     <div class="faq-grid">
 
-      <div class="faq-item">
+      <div class="faq-item reveal">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span>Can I get covered if I have a bad driving record, tickets, or accidents?</span>
           <div class="faq-icon">+</div>
@@ -862,7 +1209,7 @@ document.addEventListener('DOMContentLoaded', initBlog);
         </div>
       </div>
 
-      <div class="faq-item">
+      <div class="faq-item reveal">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span>How much will my insurance cost?</span>
           <div class="faq-icon">+</div>
@@ -875,7 +1222,7 @@ document.addEventListener('DOMContentLoaded', initBlog);
         </div>
       </div>
 
-      <div class="faq-item">
+      <div class="faq-item reveal">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span>Can I get same-day coverage?</span>
           <div class="faq-icon">+</div>
@@ -888,7 +1235,7 @@ document.addEventListener('DOMContentLoaded', initBlog);
         </div>
       </div>
 
-      <div class="faq-item">
+      <div class="faq-item reveal">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span>My policy lapsed or was cancelled. Will my rate be higher?</span>
           <div class="faq-icon">+</div>
@@ -901,7 +1248,7 @@ document.addEventListener('DOMContentLoaded', initBlog);
         </div>
       </div>
 
-      <div class="faq-item">
+      <div class="faq-item reveal">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span>What's the difference between liability and full coverage?</span>
           <div class="faq-icon">+</div>
@@ -914,7 +1261,7 @@ document.addEventListener('DOMContentLoaded', initBlog);
         </div>
       </div>
 
-      <div class="faq-item">
+      <div class="faq-item reveal">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span>Do you offer SR-22 insurance?</span>
           <div class="faq-icon">+</div>
@@ -927,7 +1274,7 @@ document.addEventListener('DOMContentLoaded', initBlog);
         </div>
       </div>
 
-      <div class="faq-item">
+      <div class="faq-item reveal">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span>Do you offer home, life, burial, and commercial insurance too?</span>
           <div class="faq-icon">+</div>
@@ -940,7 +1287,7 @@ document.addEventListener('DOMContentLoaded', initBlog);
         </div>
       </div>
 
-      <div class="faq-item">
+      <div class="faq-item reveal">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span>Why should I choose an independent agency over a big-name company?</span>
           <div class="faq-icon">+</div>
@@ -1060,6 +1407,85 @@ function moveBlog(dir){ goBlog(blogIdx + dir); }
 function startBlogTimer(){ blogTimer = setInterval(()=>goBlog(blogIdx+1), 7000); }
 function resetBlogTimer(){ clearInterval(blogTimer); startBlogTimer(); }
 document.addEventListener('DOMContentLoaded', initBlog);
+
+
+// Page load
+window.addEventListener('load', () => document.body.classList.add('loaded'));
+
+// Nav scroll
+window.addEventListener('scroll', () => {
+  document.getElementById('topnav').classList.toggle('scrolled', window.scrollY > 60);
+}, {passive:true});
+
+// Intersection Observer for scroll reveals
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting) {
+      e.target.classList.add('visible');
+      revealObserver.unobserve(e.target);
+    }
+  });
+}, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale,.stagger').forEach(el => {
+  revealObserver.observe(el);
+});
+
+// Counter animation
+function animateCounter(el){
+  const target = parseInt(el.dataset.target);
+  const duration = 1800;
+  const step = target / (duration / 16);
+  let current = 0;
+  const timer = setInterval(() => {
+    current = Math.min(current + step, target);
+    el.textContent = Math.floor(current);
+    if(current >= target) clearInterval(timer);
+  }, 16);
+}
+
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting) {
+      e.target.querySelectorAll('.counter').forEach(animateCounter);
+      counterObserver.unobserve(e.target);
+    }
+  });
+}, {threshold:0.3});
+
+const statBar = document.getElementById('statBar');
+if(statBar) counterObserver.observe(statBar);
+
+// Also animate hero stats
+const heroStats = document.querySelector('.hero-stats');
+if(heroStats){
+  heroStats.querySelectorAll('.num').forEach(num => {
+    const text = num.textContent;
+    const match = text.match(/\d+/);
+    if(match){
+      const target = parseInt(match[0]);
+      const suffix = text.replace(match[0],'');
+      let current = 0;
+      const step = target / 60;
+      const timer = setInterval(() => {
+        current = Math.min(current + step, target);
+        num.innerHTML = `${Math.floor(current)}<span>${suffix}</span>`;
+        if(current >= target) clearInterval(timer);
+      }, 16);
+    }
+  });
+}
+
+// Smooth scroll for all anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if(target){
+      e.preventDefault();
+      target.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+  });
+});
 
 </script>
 </body>
